@@ -8,12 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      customerId: {
-        type: Sequelize.INTEGER
-      },
-      dentistId: {
-        type: Sequelize.INTEGER
-      },
       appointmentDate: {
         type: Sequelize.DATE
       },
