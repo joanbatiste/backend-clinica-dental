@@ -5,7 +5,7 @@ const dentistRouter = require('./routes/dentist.router');
 // //
 // //// REST RESOURCES
 // //
-router.use('/dentist',dentistRouter);
+router.use('/dentists',dentistRouter);
 // //router.use('/??',cityRouter);
 
 module.exports = router;
