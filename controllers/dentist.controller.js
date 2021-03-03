@@ -10,6 +10,9 @@ class DentistController {
     async indexAll(){
         return Dentist.findAll();
     }
+    async indexOne(id){
+        return Dentist.findById({where:id});
+    }
 
     
 

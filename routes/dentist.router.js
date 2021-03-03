@@ -7,6 +7,7 @@ const router = require("express").Router();
 
 const dentistController = require("../controllers/dentist.controller");
 
+
 //Recursos anidados de dentistas
 
 // router.use("/:id/appointments", appointmentRouter);
@@ -21,11 +22,22 @@ router.get("/", async (req, res)=>{
     }catch(error){
         res.status(500).json({
             message: "Error"
-        })
+        });
 
-    }
+    };
 });
+router.get("/:id", async (req,res)=>{
+    try{
+        const id = req.params.id;
+        res.json(await dentistController.indexOne(id));
 
+    }catch(error){
+        res.status(500).json({
+            message: "Error"
+        });
+
+    };
+});
 
 
 module.exports = router;
