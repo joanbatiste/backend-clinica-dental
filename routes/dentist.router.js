@@ -1,10 +1,10 @@
 //Requerimos el metodo router de express y enrutador de citas
 
 const router = require("express").Router();
-const appointmentRouter = require("./appointment.router");
+
 
 //Requerimos el enrutador de dentistas
-
+const appointmentRouter = require("./appointment.router");
 const dentistController = require("../controllers/dentist.controller");
 
 

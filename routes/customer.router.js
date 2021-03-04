@@ -2,7 +2,9 @@ const router = require ("express").Router();
 
 const customerController = require("../controllers/customer.controller");
 
-
+//Recursos anidados de Customers
+const appointmentRouter = require("./appointment.router");
+router.use("/:id/appointments", appointmentRouter);
 
 //Endpoints de clientes
 

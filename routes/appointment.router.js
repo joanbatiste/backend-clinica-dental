@@ -28,7 +28,9 @@ router.get("/:id", async (req,res)=>{
 //Crear una cita nueva
 router.post("/", async (req, res)=>{
     try{
-
+        const {appointmentDate, customerId, dentistId} = req.body;
+        const appointment = await appointmentController.createOne(appointmentDate,customerId, dentistId);
+        res.json(appointment);
     }catch(error){
         return res.status(500).json({
             message: "Server error"
