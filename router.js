@@ -9,7 +9,7 @@ const customerRouter = require('./routes/customer.router');
 
 
 router.use('/dentists',dentistRouter);
-router.use('/appointments',appointmentRouter);
+// router.use('/appointments',appointmentRouter);
 router.use('/customers',customerRouter);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const router = require ("express").Router();
+const auth = require("../middleware/auth");
 
 const customerController = require("../controllers/customer.controller");
 
@@ -10,22 +11,21 @@ router.use("/:id/appointments", appointmentRouter);
 
 //GET Traemos todos los clientes
 
-router.get("/", async (req, res) => {
+// router.get("/", async (req, res) => {
+//     try{
+
+//         res.json(await customerController.showAll());
+
+//     }catch(error){
+//         res.status(500).json({
+//             message: "Error server"
+//         });
+
+//     };
+// });
+
+router.get("/:id", auth, async (req, res) => {
     try{
-
-        res.json(await customerController.showAll());
-
-    }catch(error){
-        res.status(500).json({
-            message: "Error server"
-        });
-
-    };
-});
-
-router.get("/:id", async (req, res) => {
-    try{
-
         res.json(await customerController.showOne(req.params.id));
 
     }catch(error){
