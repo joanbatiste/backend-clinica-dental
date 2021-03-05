@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('Appointments',"customerId", {
+    return[queryInterface.addColumn('Appointments',"customerId", {
       type: Sequelize.INTEGER,
       references:{
         model: "Customers",
@@ -10,8 +10,8 @@ module.exports = {
       },
       onUpdate: "CASCADE",
       onDelete: "SET NULL"
-    });
-    await queryInterface.addColumn('Appointments',"dentistId", {
+    }),
+    queryInterface.addColumn('Appointments',"dentistId", {
       type: Sequelize.INTEGER,
       references:{
         model: "Dentists",
@@ -19,12 +19,13 @@ module.exports = {
       },
       onUpdate: "CASCADE",
       onDelete: "SET NULL"
-      });
+      })
+    ];
 
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("Appointments","customerId");
-    await queryInterface.removeColumn("Appointments","dentistId");
+    return[ queryInterface.removeColumn("Appointments","customerId"),
+    queryInterface.removeColumn("Appointments","dentistId")];
   }
 };

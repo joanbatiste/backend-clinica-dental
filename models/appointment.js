@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Customer, {
         as: "customers",
         foreignKey: "customerId"
+        
       });
       this.belongsTo(models.Dentist, {
         as:"dentists",
@@ -23,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     };
   };
   Appointment.init({
-    customerId: DataTypes.INTEGER,
-    dentistId: DataTypes.INTEGER,
+    // customerId: DataTypes.INTEGER,
+    // dentistId: DataTypes.INTEGER,
     appointmentDate: DataTypes.DATE
   }, {
     sequelize,
