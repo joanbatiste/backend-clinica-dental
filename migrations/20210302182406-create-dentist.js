@@ -17,6 +17,13 @@ module.exports = {
       specialty: {
         type: Sequelize.STRING
       },
+      email: {
+        type: Sequelize.STRING,
+        unique: true
+      },
+      password: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

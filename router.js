@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const dentistRouter = require('./routes/dentist.router');
-const appointmentRouter = require('./routes/appointment.router');
+// const appointmentRouter = require('./routes/appointment.router');
 
 const customerRouter = require('./routes/customer.router');
 

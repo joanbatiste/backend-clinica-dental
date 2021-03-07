@@ -1,36 +1,37 @@
 //Requerimos el metodo router de express y enrutador de citas
 
 const router = require("express").Router();
+const auth = require("../middleware/auth");
 
 
 //Requerimos el enrutador de dentistas
-const appointmentRouter = require("./appointment.router");
+
 const dentistController = require("../controllers/dentist.controller");
 
 
 
 
 //Recursos anidados de dentistas
-
+const appointmentRouter = require("./appointment.router");
 router.use("/:id/appointments", appointmentRouter);
 
 // EndPoints de dentistas
 //Recuperar todos los dentistas
-router.get("/", async (req, res)=>{
-    try{
+// router.get("/", async (req, res)=>{
+//     try{
 
-        res.json(await dentistController.indexAll());
+//         res.json(await dentistController.indexAll());
 
-    }catch(error){
-        res.status(500).json({
-            message: "Error"
-        });
+//     }catch(error){
+//         res.status(500).json({
+//             message: "Error"
+//         });
 
-    };
-});
+//     };
+// });
 
 //Buscar un dentista por su id
-router.get("/:id", async (req,res)=>{
+router.get("/:id",auth , async (req,res)=>{
     try{
         res.json(await dentistController.indexOne(req.params.id));
 
@@ -53,9 +54,21 @@ router.post("/", async(req, res)=>{
         });
     };
 });
+//End point para logearse
+router.post("/login", async (req,res)=>{
+    try{
+        const {email,password} = req.body;
+        const jwt = await customerController.login(email,password);
+        res.json({jwt})
+    }catch(error){
+        return res.status(401).json({
+            message: error.message
+        });
+    };
+});
 
 //Actualizar datos de un dentista
-router.put("/:id", async(req,res)=>{
+router.put("/:id",auth, async(req,res)=>{
     try{
         const id = req.params.id;
         const updatedDentist = await dentistController.updateDentist(id, req.body);
@@ -71,7 +84,7 @@ router.put("/:id", async(req,res)=>{
 });
 
 //Eliminar un registro de dentista
-router.delete("/:id", async(req,res)=>{
+router.delete("/:id", auth, async(req,res)=>{
     try{
         res.json(await dentistController.destroyDent(req.params.id));
     }catch(error){

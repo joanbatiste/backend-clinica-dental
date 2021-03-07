@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
     };
 
 });
- //End point para logearse
+//End point para logearse
 router.post("/login", async (req,res)=>{
     try{
         const {email,password} = req.body;

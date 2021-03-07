@@ -3,17 +3,23 @@ let dentists = [
   {
     firstName: "Pepe",
     lastName: "Garcia",
-    specialty: "ortodoncista"
+    specialty: "ortodoncista",
+    email:"pepe@garcia.com",
+    password:"1234"
   },
   {
     firstName: "Manolo",
     lastName: "Cabezabolo",
-    specialty: "maxilofacial"
+    specialty: "maxilofacial",
+    email:"manolo@cabezabolo.com",
+    password:"1234"
   },
   {
     firstName: "Benito",
     lastName: "Camelas",
-    specialty: "matasanos"
+    specialty: "matasanos",
+    email:"benito@camelas.com",
+    password:"1234"
   }
   
 ]
