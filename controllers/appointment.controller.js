@@ -18,7 +18,7 @@ class AppointmentController{
         return Appointment.findAll({where:{customerId,appointmentDate:{[Op.gte]:new Date}}})
     }
 
-    //Traer una cita por id
+    //Traer la cita por id
     async indexOne(id){
         return Appointment.findOne({where:{id}});
     };
