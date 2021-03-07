@@ -1,3 +1,4 @@
+//Requerimos el jsonwebtoken para comparar token de acceso clientes
 const jwt = require('jsonwebtoken');
 const secret = process.env.JWT_SECRET || 'unapalabrasecreta';
 

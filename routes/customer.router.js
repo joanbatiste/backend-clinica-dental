@@ -1,6 +1,7 @@
+//Requerimos el router
 const router = require ("express").Router();
 const auth = require("../middleware/auth");
-
+//Requerimos el controlador de customers
 const customerController = require("../controllers/customer.controller");
 
 //Recursos anidados de Customers
@@ -9,7 +10,8 @@ router.use("/:id/appointments", appointmentRouter);
 
 //Endpoints de clientes
 
-//GET Traemos todos los clientes
+//GET Traemos todos los clientes (endpoint exclusivo para usuario admin de la clínica)
+
 
 // router.get("/", async (req, res) => {
 //     try{
@@ -24,6 +26,7 @@ router.use("/:id/appointments", appointmentRouter);
 //     };
 // });
 
+//End point para que un usuario obtenga sus datos
 router.get("/:id", auth, async (req, res) => {
     try{
         res.json(await customerController.showOne(req.params.id));
@@ -35,6 +38,7 @@ router.get("/:id", auth, async (req, res) => {
     };
 });
 
+//End point para dar de alta un usuario
 router.post("/", async (req, res) => {
     try{
         const customer = await customerController.createCustomer(req.body);
@@ -48,7 +52,7 @@ router.post("/", async (req, res) => {
     };
 
 });
-
+ //End point para logearse
 router.post("/login", async (req,res)=>{
     try{
         const {email,password} = req.body;

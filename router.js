@@ -3,9 +3,8 @@ const dentistRouter = require('./routes/dentist.router');
 const appointmentRouter = require('./routes/appointment.router');
 
 const customerRouter = require('./routes/customer.router');
-// //
-// //
-// //// REST RESOURCES
+
+// REST RESOURCES
 
 
 router.use('/dentists',dentistRouter);

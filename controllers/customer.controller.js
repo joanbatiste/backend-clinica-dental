@@ -1,3 +1,4 @@
+//Requerimnos el modelo customer
 const {Customer} = require("../models");
 
 //Importacion librerías para hash de password y token

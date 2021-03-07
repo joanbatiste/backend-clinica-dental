@@ -1,3 +1,4 @@
+//Requerimos express, el router y los datos de la base de datos
 const express = require('express');
 const router = require('./router');
 const db = require('./db');
