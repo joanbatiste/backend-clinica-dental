@@ -26,15 +26,17 @@ class CustomerController {
     async createCustomer(customer){
 
         let emailUser = customer.email;
+        console.log(emailUser);
 
-        let encontrado = await Customer.findOne({where:{email:emailUser}});
+        const encontrado = await Customer.findOne({where:{email:emailUser}});
 
-        if(encontrado){
-            throw new Error ("Usuario ya existe");
-
-        }else{
+        if(!encontrado){
             customer.password = await bcrypt.hash(customer.password, 5)
             return Customer.create(customer);
+
+        }else{
+            
+            return {error: "El usuario ya existe"}
         }
 
         
