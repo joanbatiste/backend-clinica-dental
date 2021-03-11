@@ -27,10 +27,10 @@ class CustomerController {
 
         let emailUser = customer.email;
 
-        let encontrado = Customer.findOne({where:{emailUser}});
+        let encontrado = await Customer.findOne({where:{email:emailUser}});
 
         if(encontrado){
-            return new Error ("Usuario ya existe");
+            throw new Error ("Usuario ya existe");
 
         }else{
             customer.password = await bcrypt.hash(customer.password, 5)
