@@ -57,7 +57,9 @@ router.post("/login", async (req,res)=>{
     try{
         const {email,password} = req.body;
         const jwt = await customerController.login(email,password);
-        res.json({jwt})
+        const token = jwt.token;
+        const customer = jwt.customer;
+        res.json({token, customer})
     }catch(error){
         return res.status(401).json({
             message: error.message
