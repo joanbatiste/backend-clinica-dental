@@ -57,8 +57,8 @@ class CustomerController {
             customerId: customer.id,
             tokenCreationDate: new Date,
         }
-
-        return jwt.sign(payload, secret);
+        const token = jwt.sign(payload, secret)
+        return {token, customer};
     };   
 
 };
