@@ -26,7 +26,7 @@ class CustomerController {
     async createCustomer(customer){
 
         let emailUser = customer.email;
-        console.log(emailUser);
+      
 
         const encontrado = await Customer.findOne({where:{email:emailUser}});
 
@@ -57,7 +57,7 @@ class CustomerController {
             customerId: customer.id,
             tokenCreationDate: new Date,
         }
-
+        
         return jwt.sign(payload, secret);
     };   
 
