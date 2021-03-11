@@ -24,8 +24,20 @@ class CustomerController {
 
     //Crear clientes
     async createCustomer(customer){
-        customer.password = await bcrypt.hash(customer.password, 5)
-        return Customer.create(customer);
+
+        let emailUser = customer.email;
+
+        let encontrado = Customer.findOne({where:{emailUser}});
+
+        if(encontrado){
+            return new Error ("Usuario ya existe");
+
+        }else{
+            customer.password = await bcrypt.hash(customer.password, 5)
+            return Customer.create(customer);
+        }
+
+        
         
 
     };
