@@ -48,10 +48,10 @@ class CustomerController {
     async login(email, password){
         const customer = await Customer.findOne({where:{email}})
         if(!customer){
-            throw new Error("Email does not exist")
+            return {error: "Email o contraseña incorrectos"};
         }
         if (!await bcrypt.compare(password,customer.password)){
-            throw new Error('Password incorrect')
+            return {error: "Email o contraseña incorrectos"};
         }
         const payload = {
             customerId: customer.id,
