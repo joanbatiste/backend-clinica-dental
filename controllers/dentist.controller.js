@@ -11,7 +11,10 @@ class DentistController {
     constructor() {
 
     }
-    
+    //Traer todos los dentistas
+    async indexAll(){
+        return Dentist.findAll();
+    }
     //Traer un dentista
     async indexOne(id){
         return Dentist.findOne({where:{id}});
