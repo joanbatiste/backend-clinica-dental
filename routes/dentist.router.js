@@ -17,18 +17,18 @@ router.use("/:id/appointments", appointmentRouter);
 
 // EndPoints de dentistas
 //Recuperar todos los dentistas
-// router.get("/", async (req, res)=>{
-//     try{
+router.get("/", async (req, res)=>{
+    try{
 
-//         res.json(await dentistController.indexAll());
+        res.json(await dentistController.indexAll());
 
-//     }catch(error){
-//         res.status(500).json({
-//             message: "Error"
-//         });
+    }catch(error){
+        res.status(500).json({
+            message: "Error"
+        });
 
-//     };
-// });
+    };
+});
 
 //Buscar un dentista por su id
 router.get("/:id", async (req,res)=>{
