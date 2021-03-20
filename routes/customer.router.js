@@ -13,18 +13,18 @@ router.use("/:id/appointments", appointmentRouter);
 //GET Traemos todos los clientes (endpoint exclusivo para usuario admin de la clínica)
 
 
-// router.get("/", async (req, res) => {
-//     try{
+router.get("/", async (req, res) => {
+    try{
 
-//         res.json(await customerController.showAll());
+        res.json(await customerController.showAll());
 
-//     }catch(error){
-//         res.status(500).json({
-//             message: "Error server"
-//         });
+    }catch(error){
+        res.status(500).json({
+            message: "Error server"
+        });
 
-//     };
-// });
+    };
+});
 
 //End point para que un usuario obtenga sus datos
 router.get("/:id", auth, async (req, res) => {
