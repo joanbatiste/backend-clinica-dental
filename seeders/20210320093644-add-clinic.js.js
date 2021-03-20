@@ -5,7 +5,7 @@ let clinic = [
     adress: "C/ Sonrisa de Ochando, 8",
     phone: "963687528",
     email:"info@cuquident.es",
-    password:"1234"
+    password:"Abril2021!"
   }, 
 ]
 clinic = clinic.map((clinica) => 
