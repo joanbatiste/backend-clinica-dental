@@ -1,7 +1,7 @@
 'use strict';
 let clinic = [
   {
-    name: "Cuqui Dent, S.L",
+    nombre: "Admin",
     adress: "C/ Sonrisa de Ochando, 8",
     phone: "963687528",
     email:"info@cuquident.es",
