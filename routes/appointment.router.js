@@ -8,7 +8,7 @@ const appointmentController = require("../controllers/appointment.controller");
 //Endpoints de appointmemnts
 //Recuperar todas las citas
 
-router.get("/",auth, async (req, res)=>{
+router.get("/", async (req, res)=>{
     try{
         const customerId = req.params.id;
         if(!customerId){
